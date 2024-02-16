@@ -1,13 +1,12 @@
 ﻿using VShop.Web.Models;
 
-namespace VShop.Web.Services.Contracts
+namespace VShop.Web.Services.Contracts;
+
+public interface IProductService
 {
-    public interface IProductService
-    {
-        Task<IEnumerable<ProductViewModel>> GetAllProducts();
-        Task<ProductViewModel> FindProductById(int id);
-        Task<ProductViewModel> CreateProduct(ProductViewModel product);
-        Task<ProductViewModel> UpdateProduct(ProductViewModel product);
-        Task<ProductViewModel> DeleteProduct(int id);
-    }
+    Task<IEnumerable<ProductViewModel>> GetAllProducts();
+    Task<ProductViewModel> FindProductById(int id);
+    Task<ProductViewModel> CreateProduct(ProductViewModel product);
+    Task<ProductViewModel> UpdateProduct(ProductViewModel product);
+    Task<bool> DeleteProduct(int id);
 }

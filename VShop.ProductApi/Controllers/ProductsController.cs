@@ -46,7 +46,7 @@ namespace VShop.ProductApi.Controllers
 
             await _productService.AddProduct(productDto);
 
-            return new CreatedAtActionResult("GetProduct", nameof(ProductsController), new { id = productDto.Id }, productDto);
+            return new CreatedAtRouteResult("GetProduct", new { id = productDto.Id }, productDto);
         }
 
         [HttpPut("{id:int}")]

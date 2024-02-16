@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using VShop.ProductApi.Context;
 using VShop.ProductApi.Models;
 
@@ -25,8 +26,15 @@ public class ProductRepository : IProductRepository
 
     public async Task<Product> Create(Product product)
     {
-        _context.Products.Add(product);
-        await _context.SaveChangesAsync();
+        try
+        {
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
         return product;
     }
 

@@ -56,7 +56,7 @@ namespace VShop.ProductApi.Controllers
 
             await _categoryService.AddCategory(categoryDto);
 
-            return new CreatedAtActionResult("GetCategory", nameof(CategoriesController), new { id = categoryDto.Id }, categoryDto);
+            return new CreatedAtRouteResult("GetCategory", new { id = categoryDto.Id }, categoryDto);
         }
 
         [HttpPut("{id:int}")]
