@@ -30,7 +30,7 @@ public class ProductsController : Controller
     [HttpGet]
     public async Task<IActionResult> CreateProduct()
     {
-        ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(), "CategoryId", "Name");
+        ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(), "Id", "Name");
 
         return View();
     }
@@ -47,7 +47,7 @@ public class ProductsController : Controller
         }
         else
         {
-            ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(), "CategoryId", "Name");
+            ViewBag.CategoryId = new SelectList(await _categoryService.GetAllCategories(), "Id", "Name");
         }
         return View(productVM);
     }
