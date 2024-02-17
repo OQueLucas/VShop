@@ -49,6 +49,7 @@ public class ProductRepository : IProductRepository
     {
         var product = await GetById(id);
         _context.Products.Remove(product);
+        await _context.SaveChangesAsync();
         return product;
     }
 }
